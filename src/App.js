@@ -20,7 +20,14 @@ import TechHome           from "./pages/tech/TechHome";
 import TechRegisterSuccess from "./pages/tech/TechRegisterSuccess";
 import TechRequests       from "./pages/tech/TechRequests";
 import TechProfile        from "./pages/tech/TechProfile";
-
+import EditProfile from "./pages/tech/EditProfile";
+import ChangePassword from "./pages/tech/ChangePassword";
+import PasswordChanged from "./pages/tech/PasswordChanged";
+import Negotiation from "./pages/tech/Negotiation";
+import TermsAndConditions from "./pages/tech/TermsAndConditions";
+import PrivacyPolicy from "./pages/tech/PrivacyPolicy";
+import RejectedStatus from "./pages/tech/RejectedStatus";
+import AcceptedStatus from "./pages/tech/AcceptedStatus";
 // =====================
 // حماية صفحات الأدمن
 // =====================
@@ -96,7 +103,14 @@ function App() {
 <Route path="/tech/profile" element={
   <ProtectedTechRoute><TechProfile /></ProtectedTechRoute>
 } />
-
+<Route path="/tech/edit-profile" element={<ProtectedTechRoute><EditProfile /></ProtectedTechRoute>} />
+<Route path="/tech/change-password" element={<ProtectedTechRoute><ChangePassword /></ProtectedTechRoute>} />
+<Route path="/tech/password-changed" element={<PasswordChanged />} />
+<Route path="/tech/negotiation" element={<ProtectedTechRoute><Negotiation /></ProtectedTechRoute>} />
+<Route path="/tech/terms" element={<ProtectedTechRoute><TermsAndConditions /></ProtectedTechRoute>} />
+<Route path="/tech/privacy" element={<ProtectedTechRoute><PrivacyPolicy /></ProtectedTechRoute>} />
+<Route path="/tech/rejected" element={<RejectedStatus />} />
+<Route path="/tech/accepted" element={<AcceptedStatus />} />
         {/* ── أي رابط تاني يرجع للرئيسية ── */}
         <Route path="*" element={<Navigate to="/" replace />} />
 

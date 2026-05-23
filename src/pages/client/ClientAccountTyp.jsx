@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 
-
-
 export default function ClientAccountType() {
   const [selected, setSelected] = useState("Client");
   const navigate = useNavigate();

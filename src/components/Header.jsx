@@ -1,5 +1,6 @@
 import { COLORS } from "../styles/colors";
-import logo from "../assets/logo_herfah.jpg";
+import logo from "../../assets/logo_herfah.jpg";
+
 
 function Header() {
   return (

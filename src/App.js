@@ -24,8 +24,8 @@ import TechHome from "./pages/tech/TechHome";
 import TechRegisterSuccess from "./pages/tech/TechRegisterSuccess";
 import TechRequests from "./pages/tech/TechRequests";
 import TechProfile from "./pages/tech/TechProfile";
-import EditProfile from "./pages/tech/EditProfile";
-import ChangePassword from "./pages/tech/ChangePassword";
+import TechEditProfile from "./pages/tech/EditProfile";
+import TechChangePassword from "./pages/tech/ChangePassword";
 import PasswordChanged from "./pages/tech/PasswordChanged";
 import Negotiation from "./pages/tech/Negotiation";
 import TermsAndConditions from "./pages/tech/TermsAndConditions";
@@ -42,10 +42,21 @@ import ClientRegister from "./pages/client/ClientRegister";
 import ClientRegisterDone from "./pages/client/ClientRegisterDone";
 import ClientHome from "./pages/client/ClientHome";
 import ClientRequests from "./pages/client/ClientRequests";
+import ServiceRequest from "./pages/client/ServiceRequest";
+import DoneServiceRequest from "./pages/client/DoneServiceRequest";
+import RequestDetails from "./pages/client/RequestDetails";
+import RequestStatus from "./pages/client/RequestStatus";
+import AfterRequestCompleted from "./pages/client/AfterRequestCompleted";
 import ComplainDetails from "./pages/client/ComplainDetails";
 import ComplainDone from "./pages/client/ComplainDone";
-import AfterRequestCompleted from "./pages/client/AfterRequestCompleted";
-import ServiceRequest from "./pages/client/ServiceRequest";
+import Rating from "./pages/client/Rating";
+import Conversations from "./pages/client/Conversations";
+import Account from "./pages/client/Account";
+import ClientEditProfile from "./pages/client/EditProfile";
+import ClientChangePassword from "./pages/client/ChangePassword";
+import ClientPasswordChanged from "./pages/client/ClientPasswordChanged";
+import ClientTerms from "./pages/client/ClientTerms";
+import ClientPrivacyPolicy from "./pages/client/ClientPrivacyPolicy";
 
 // ══════════════════════════════
 // Route Guards
@@ -74,7 +85,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SelectAccountType />} />
 
-        {/* Admin */}
+        {/* ══════════ Admin ══════════ */}
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/dashboard" element={<ProtectedAdminRoute><Dashboard /></ProtectedAdminRoute>} />
         <Route path="/admin/technicians" element={<ProtectedAdminRoute><Technicians /></ProtectedAdminRoute>} />
@@ -84,7 +95,7 @@ function App() {
         <Route path="/admin/reports/:id" element={<ProtectedAdminRoute><ReportsDetails /></ProtectedAdminRoute>} />
         <Route path="/admin/create-admin" element={<ProtectedAdminRoute><CreateAdmin /></ProtectedAdminRoute>} />
 
-        {/* Tech */}
+        {/* ══════════ Tech ══════════ */}
         <Route path="/tech/login" element={<TechLogin />} />
         <Route path="/tech/register" element={<TechRegister />} />
         <Route path="/tech/register/success" element={<TechRegisterSuccess />} />
@@ -96,25 +107,36 @@ function App() {
         <Route path="/tech/home" element={<ProtectedTechRoute><TechHome /></ProtectedTechRoute>} />
         <Route path="/tech/requests" element={<ProtectedTechRoute><TechRequests /></ProtectedTechRoute>} />
         <Route path="/tech/profile" element={<ProtectedTechRoute><TechProfile /></ProtectedTechRoute>} />
-        <Route path="/tech/edit-profile" element={<ProtectedTechRoute><EditProfile /></ProtectedTechRoute>} />
-        <Route path="/tech/change-password" element={<ProtectedTechRoute><ChangePassword /></ProtectedTechRoute>} />
+        <Route path="/tech/edit-profile" element={<ProtectedTechRoute><TechEditProfile /></ProtectedTechRoute>} />
+        <Route path="/tech/change-password" element={<ProtectedTechRoute><TechChangePassword /></ProtectedTechRoute>} />
         <Route path="/tech/negotiation" element={<ProtectedTechRoute><Negotiation /></ProtectedTechRoute>} />
         <Route path="/tech/terms" element={<ProtectedTechRoute><TermsAndConditions /></ProtectedTechRoute>} />
         <Route path="/tech/privacy" element={<ProtectedTechRoute><PrivacyPolicy /></ProtectedTechRoute>} />
 
-        {/* Client */}
+        {/* ══════════ Client ══════════ */}
         <Route path="/client/account-type" element={<ClientAccountType />} />
-    
-       <Route path="/client/login" element={<ClientLogin />} />
+        <Route path="/client/login" element={<ClientLogin />} />
         <Route path="/client/register" element={<ClientRegister />} />
-        <Route path="/client/register/done" element={<ClientRegisterDone />} />
+        <Route path="/client/register-done" element={<ClientRegisterDone />} />
         <Route path="/client/home" element={<ProtectedClientRoute><ClientHome /></ProtectedClientRoute>} />
         <Route path="/client/requests" element={<ProtectedClientRoute><ClientRequests /></ProtectedClientRoute>} />
+        <Route path="/client/service-request" element={<ProtectedClientRoute><ServiceRequest /></ProtectedClientRoute>} />
+        <Route path="/client/done-service-request" element={<ProtectedClientRoute><DoneServiceRequest /></ProtectedClientRoute>} />
+        <Route path="/client/request-details" element={<ProtectedClientRoute><RequestDetails /></ProtectedClientRoute>} />
+        <Route path="/client/request-status" element={<ProtectedClientRoute><RequestStatus /></ProtectedClientRoute>} />
+        <Route path="/client/after-request-completed" element={<ProtectedClientRoute><AfterRequestCompleted /></ProtectedClientRoute>} />
         <Route path="/client/complain-details" element={<ProtectedClientRoute><ComplainDetails /></ProtectedClientRoute>} />
         <Route path="/client/complain-done" element={<ProtectedClientRoute><ComplainDone /></ProtectedClientRoute>} />
-        <Route path="/client/after-request-completed" element={<ProtectedClientRoute><AfterRequestCompleted /></ProtectedClientRoute>} />
-        <Route path="/client/service-request" element={<ProtectedClientRoute><ServiceRequest /></ProtectedClientRoute>} />
+        <Route path="/client/rating" element={<ProtectedClientRoute><Rating /></ProtectedClientRoute>} />
+        <Route path="/client/conversations" element={<ProtectedClientRoute><Conversations /></ProtectedClientRoute>} />
+        <Route path="/client/account" element={<ProtectedClientRoute><Account /></ProtectedClientRoute>} />
+        <Route path="/client/edit-profile" element={<ProtectedClientRoute><ClientEditProfile /></ProtectedClientRoute>} />
+        <Route path="/client/change-password" element={<ProtectedClientRoute><ClientChangePassword /></ProtectedClientRoute>} />
+        <Route path="/client/password-changed" element={<ProtectedClientRoute><ClientPasswordChanged /></ProtectedClientRoute>} />
+        <Route path="/client/terms" element={<ProtectedClientRoute><ClientTerms /></ProtectedClientRoute>} />
+        <Route path="/client/privacy" element={<ProtectedClientRoute><ClientPrivacyPolicy /></ProtectedClientRoute>} />
 
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

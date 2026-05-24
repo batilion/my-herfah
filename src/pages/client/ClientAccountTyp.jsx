@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 
 export default function ClientAccountType() {
-  const [selected, setSelected] = useState("Client");
+  const [selected, setSelected] = useState("client"); // ✅ صغيرة
   const navigate = useNavigate();
 
   const handleContinue = () => {
     if (selected === "client") navigate("/client/login");
-    else navigate("/client/login");
+    else navigate("/tech/login"); // ✅ مسار الفني
   };
 
   return (
@@ -24,7 +24,11 @@ export default function ClientAccountType() {
         <p style={styles.label}>اختر نوع الحساب</p>
 
         <div
-          style={{ ...styles.option, border: selected === "client" ? "2px solid #2e7d32" : "2px solid #e0e0e0", background: selected === "client" ? "#f1f8f1" : "#fff" }}
+          style={{
+            ...styles.option,
+            border: selected === "client" ? "2px solid #2e7d32" : "2px solid #e0e0e0",
+            background: selected === "client" ? "#f1f8f1" : "#fff",
+          }}
           onClick={() => setSelected("client")}
         >
           <div style={styles.optionText}>
@@ -32,19 +36,27 @@ export default function ClientAccountType() {
             <span style={styles.optionDesc}>إبحث عن خدمات وفنيين محترمين</span>
           </div>
           <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="عميل" style={styles.optionIcon} />
-          <div style={styles.radio}>{selected === "client" && <div style={styles.radioDot} />}</div>
+          <div style={styles.radio}>
+            {selected === "client" && <div style={styles.radioDot} />}
+          </div>
         </div>
 
         <div
-          style={{ ...styles.option, border: selected === "provider" ? "2px solid #2e7d32" : "2px solid #e0e0e0", background: selected === "provider" ? "#f1f8f1" : "#fff" }}
+          style={{
+            ...styles.option,
+            border: selected === "provider" ? "2px solid #2e7d32" : "2px solid #e0e0e0",
+            background: selected === "provider" ? "#f1f8f1" : "#fff",
+          }}
           onClick={() => setSelected("provider")}
         >
           <div style={styles.optionText}>
             <span style={styles.optionTitle}>مزود خدمة</span>
-            <span style={styles.optionDesc}>ابث عن خدمتك واحصل على عملاء</span>
+            <span style={styles.optionDesc}>ابحث عن خدمتك واحصل على عملاء</span>
           </div>
           <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="مزود خدمة" style={styles.optionIcon} />
-          <div style={styles.radio}>{selected === "provider" && <div style={styles.radioDot} />}</div>
+          <div style={styles.radio}>
+            {selected === "provider" && <div style={styles.radioDot} />}
+          </div>
         </div>
 
         <button style={styles.btn} onClick={handleContinue}>متابعة</button>
